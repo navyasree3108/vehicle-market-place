@@ -28,7 +28,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads"))); // to acce
 app.use("/api/vehicles", vehicleRoutes);
 
 // Connect MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/vehicleDB", {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => console.log("MongoDB connected"))
